@@ -1,7 +1,9 @@
 package com.lee.flashsale.controller;
 
 import com.lee.flashsale.pojo.User;
+import com.lee.flashsale.service.GoodsService;
 import com.lee.flashsale.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -16,8 +18,10 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/goods")
 public class GoodsController {
-//    @Resource
+    //    @Resource
 //    private UserService userService;
+    @Autowired
+    private GoodsService goodsService;
 
     @RequestMapping(value = "/toList")
 //    public String toList(HttpSession session, Model model, @CookieValue("userTicket") String ticket) {
@@ -36,6 +40,7 @@ public class GoodsController {
             return "login";
         }
         model.addAttribute("user", user);
+        model.addAttribute("goodsList", goodsService.findGoodsVo());
         return "goodsList";
     }
 }

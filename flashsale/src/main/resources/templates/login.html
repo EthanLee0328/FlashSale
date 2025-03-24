@@ -39,6 +39,7 @@
             border-radius: 5px;
             box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
         }
+
         .pinkbox {
             position: absolute;
             top: -10%;
@@ -273,9 +274,9 @@
         var str = salt.charAt(0) + inputPass + salt.charAt(6);
         var password = md5(str);
 
-        console.log("inputPass->"+inputPass)
-        console.log("salt->"+salt)
-        console.log("password->"+password)
+        console.log("inputPass->" + inputPass)
+        console.log("salt->" + salt)
+        console.log("password->" + password)
 
         $.ajax({
             url: "/login/doLogin",
@@ -285,7 +286,10 @@
             },
             success: function (data) {
                 if (data.code === 200) {
-                    alert(data.message)
+                    //alert("登录成功~~")
+//登录成功后, 进入商品列表
+                    layer.msg("登录成功~~");
+                    window.location.href = "/goods/toList";
                 } else {
                     alert(data.message)
                 }
