@@ -270,7 +270,7 @@
 
     function doLogin() {
         var inputPass = $("#password").val();
-        var salt = get_passsword_salt;
+        var salt = get_password_salt;
         var str = salt.charAt(0) + inputPass + salt.charAt(6);
         var password = md5(str);
 

@@ -32,4 +32,23 @@
         FROM goods g
         LEFT JOIN flashsale_goods as fg on g.id = fg.goods_id
     </select>
+
+    <select id="findGoodsVoByGoodsId" resultType="com.lee.flashsale.vo.GoodsVo">
+        select g.id,
+               g.goods_name,
+               g.goods_title,
+               g.goods_img,
+               g.goods_detail,
+               g.goods_price,
+               g.goods_stock,
+               fg.price as flashsale_price,
+               fg.stock as flashsale_stock_count,
+               fg.start_date,
+               fg.end_date
+        FROM goods g
+                 LEFT JOIN flashsale_goods as fg on g.id = fg.goods_id
+        where g.id = #{goodsId}
+    </select>
+
+
 </mapper>

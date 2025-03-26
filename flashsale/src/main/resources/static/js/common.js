@@ -5,7 +5,7 @@ function g_showLoading() {
 }
 
 //salt
-var get_passsword_salt = "5BQ5EZru"
+var get_password_salt = "5BQ5EZru"
 
 // 获取url参数
 function g_getQueryString(name) {
